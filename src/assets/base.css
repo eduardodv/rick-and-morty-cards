@@ -1,32 +1,33 @@
-/* color palette from <https://github.com/vuejs/theme> */
 :root {
   --color-white: #ffffff;
   --color-black: #101010;
+  --color-black-2: #222222;
   --color-blue: #2ab6cd;
   --color-lime: #aedc25;
-  --color-gray-light: #ccc;
+  --color-gray: #ccc;
+  --color-gray-light: #eee;
 
+  --color-status: #9e9e9e;
+  --color-status-green: #55cc45;
+  --color-status-red: #d63d2e;
 
-  --vt-c-text-light-1: var(--color-black);
-  --vt-c-text-dark-1: var(--color-white);
+  --text-light-1: var(--color-black);
+  --text-dark-1: var(--color-white);
 }
 
 /* semantic color variables for this project */
 :root {
   --color-background: var(--color-white);
-
-  --color-heading: var(--vt-c-text-light-1);
-  --color-text: var(--vt-c-text-light-1);
-
-  --section-gap: 160px;
+  --color-text: var(--text-light-1);
+  --card-item-color: var(--color-gray-light);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --color-background: var(--color-black);
-
-    --color-heading: var(--vt-c-text-dark-1);
-    --color-text: var(--vt-c-text-dark-1);
+    --color-text: var(--text-dark-1); 
+    --card-item-color: var(--color-black-2);
+    --card-item-color-hover: var(--color-lime);
   }
 }
 
