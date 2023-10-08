@@ -39,7 +39,7 @@
         cursor: pointer;
         border: 0;
         color: var(--color-black);
-        background-color: var(--color-gray-light);
+        background-color: var(--color-gray);
         transition: all 0.2s ease;
 
         &:focus-visible {
