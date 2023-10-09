@@ -20,6 +20,8 @@
   --color-background: var(--color-white);
   --color-text: var(--text-light-1);
   --card-item-color: var(--color-gray-light);
+  --color-pagination: var(--color-blue);
+  --color-pagination-text: var(--text-dark-1);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -28,6 +30,8 @@
     --color-text: var(--text-dark-1); 
     --card-item-color: var(--color-black-2);
     --card-item-color-hover: var(--color-lime);
+    --color-pagination: var(--color-lime);
+    --color-pagination-text: var(--text-light-1);
   }
 }
 

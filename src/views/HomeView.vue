@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import CardItem from '@/components/CardItem.vue';
 import FilterStatus from '@/components/FilterStatus.vue';
+import PaginationComponent from '@/components/PaginationComponent.vue';
 
 
 </script>
@@ -8,6 +9,7 @@ import FilterStatus from '@/components/FilterStatus.vue';
 <template>
   <div class="container">
     <FilterStatus />
+
     <section class="cards">
       <CardItem />
       <CardItem />
@@ -18,6 +20,8 @@ import FilterStatus from '@/components/FilterStatus.vue';
       <CardItem />
       <CardItem />
     </section>
+    
+    <PaginationComponent />
   </div>
 </template>
 
