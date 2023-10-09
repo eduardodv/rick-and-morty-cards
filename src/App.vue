@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <HeaderComponent />
+  <HeaderComponent v-if="$route.name !== 'pageNotFound'" />
   <main>
     <RouterView />
   </main>
