@@ -22,6 +22,20 @@
   --card-item-color: var(--color-gray-light);
   --color-pagination: var(--color-blue);
   --color-pagination-text: var(--text-dark-1);
+  --color-filter-image-space: brightness(-100%);
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--color-gray-light); 
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background: var(--color-gray); 
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -32,6 +46,15 @@
     --card-item-color-hover: var(--color-lime);
     --color-pagination: var(--color-lime);
     --color-pagination-text: var(--text-light-1);
+    --color-filter-image-space: brightness(100%);
+
+    ::-webkit-scrollbar-track {
+      background: var(--color-black-2); 
+    }
+  
+    ::-webkit-scrollbar-thumb {
+      background: var(--color-lime); 
+    }
   }
 }
 
@@ -44,12 +67,9 @@
 }
 
 body {
-  min-height: 100vh;
+  min-height: 100svh;
   color: var(--color-text);
   background: var(--color-background);
-  /* transition:
-    color 0.5s,
-    background-color 0.5s; */
   line-height: 1.6;
   font-family: 'Nunito Sans', sans-serif;
   font-size: 16px;
