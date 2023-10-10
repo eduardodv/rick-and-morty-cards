@@ -1,12 +1,23 @@
 <script setup lang="ts">
-  
+  import { useCharacterStore } from '@/stores/characterStore'
+  import { ref } from 'vue';
+
+  const store = useCharacterStore()
+
+  const search = ref("")
+
+  const handleSearchCharacter = (query:string) => {
+    store.fetchCharacters(query)
+    search.value = ""
+  }
+
 </script>
 
 <template>
   <div id="search">
-    <form action="">
-      <input type="text">
-      <button>
+    <form>
+      <input type="text" placeholder="Search" v-model="search">
+      <button @click.prevent="handleSearchCharacter(search)">
         <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
       </button>
     </form>
