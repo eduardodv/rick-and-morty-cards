@@ -1,14 +1,41 @@
 <script setup lang="ts">
+  import { useCharacterStore } from '@/stores/characterStore';
 
+  const store = useCharacterStore()
+
+  const handleFilterByStatus = (status: string) => {
+    store.filterByStatus(status);
+  };
 </script>
 
 <template>
   <section id="filter-status">
     <span>Filter by:</span>
     <div class="buttons">
-      <button class="active">Alive</button>
-      <button>Dead</button>
-      <button>Unknown</button>
+      <button 
+        :class="{active: store.statusStore === ''}" 
+        @click="handleFilterByStatus('')"
+      >
+        All
+      </button>
+      <button 
+        :class="{active: store.statusStore === 'alive'}" 
+        @click="handleFilterByStatus('alive')"
+      >
+        Alive
+      </button>
+      <button 
+        :class="{active: store.statusStore === 'dead'}" 
+        @click="handleFilterByStatus('dead')"
+      >
+        Dead
+      </button>
+      <button 
+        :class="{active: store.statusStore === 'unknown'}" 
+        @click="handleFilterByStatus('unknown')"
+      >
+        Unknown
+      </button>
     </div>
   </section>
 </template>
