@@ -1,23 +1,41 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router';
+  import { RouterLink } from 'vue-router';
 
+  interface characterProps {
+    id: number
+    name: string
+    status: string
+    species: string
+    image: string
+    location: {
+      name: string
+    }
+  }
 
+  defineProps<{
+    character: characterProps
+    episode: string
+  }>()
+  
 </script>
 
 <template>
-  <RouterLink to="/" class="card-item">
+  <RouterLink :to="`/character/${character.id}`" class="card-item">
     <div class="image">
-      <img src="https://rickandmortyapi.com/api/character/avatar/117.jpeg" alt="">
+      <img :src="character.image" alt="">
     </div>
     <div class="content">
-      <h2 class="title">Evil Jerry Clone</h2>
-      <div class="subtitle">
-        Dead - Human
+      <h2 class="title">{{ character.name }}</h2>
+      <div 
+        class="subtitle"
+        :class="{'green': character.status === 'Alive', 'red': character.status === 'Dead'}"
+      >
+        {{ character.status }} - {{ character.species }}
       </div>
       <span>Last known location:</span>
-      <p>Earth (C-137)</p>
+      <p>{{ character.location.name }}</p>
       <span>First seen in:</span>
-      <p>Meeseeks and Destroy</p>
+      <p>{{ episode }}</p>
     </div>
   </RouterLink>
 </template>

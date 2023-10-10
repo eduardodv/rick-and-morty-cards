@@ -1,27 +1,45 @@
 <script setup lang="ts">
-import CardItem from '@/components/CardItem.vue';
-import FilterStatus from '@/components/FilterStatus.vue';
-import PaginationComponent from '@/components/PaginationComponent.vue';
+  import { computed, onMounted } from 'vue';
+  import { useCharacterStore } from '@/stores/characterStore'
 
+  import CardItem from '@/components/CardItem.vue';
+  import FilterStatus from '@/components/FilterStatus.vue';
+  import PaginationComponent from '@/components/PaginationComponent.vue';
+  import NotFoundMessage from '@/components/NotFoundMessage.vue';
+  import LoadingComponent from '@/components/LoadingComponent.vue';
 
+  const store = useCharacterStore()
+
+  const characters = computed(() => {
+    return store.characters
+  })
+
+  const episodes = computed(() => {
+    return store.episodes
+  })
+
+  onMounted(() => {
+    store.fetchCharacters()
+  })
 </script>
 
 <template>
   <div class="container">
     <FilterStatus />
 
-    <section class="cards">
-      <CardItem />
-      <CardItem />
-      <CardItem />
-      <CardItem />
-      <CardItem />
-      <CardItem />
-      <CardItem />
-      <CardItem />
+    <section class="cards" v-if="!store.isLoading">
+      <CardItem 
+        v-for="(character, index) in characters" :key="index"
+        :character="character" 
+        :episode="episodes[index]"
+      />
     </section>
+
+    <LoadingComponent v-else />
+
+    <NotFoundMessage v-if="!store.isLoading && !characters.length" />
     
-    <PaginationComponent />
+    <PaginationComponent v-if="!store.isLoading && characters.length" />
   </div>
 </template>
 

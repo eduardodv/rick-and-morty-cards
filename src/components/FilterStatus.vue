@@ -71,6 +71,10 @@
     #filter-status {
       flex-direction: column;
 
+      span {
+        margin-right: 0;
+      }
+
       .buttons {
         margin-top: 0.6rem;
       }
