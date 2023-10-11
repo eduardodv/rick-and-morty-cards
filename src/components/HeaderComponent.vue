@@ -27,7 +27,12 @@ import { onMounted } from 'vue';
         <img alt="Vue logo" class="logo" src="@/assets/logo.png" width="300" />
       </RouterLink>
 
-      <HeaderSearch />
+      <HeaderSearch v-if="$route.name === 'home'" />
+      
+      <RouterLink v-else to="/" class="back">
+        <font-awesome-icon icon="fa-solid fa-angle-left" />
+        Voltar
+      </RouterLink>
     </div>
   </header>
 </template>
@@ -41,6 +46,7 @@ import { onMounted } from 'vue';
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
+      gap: 0 1rem;
     }
 
     .logo {
@@ -49,6 +55,25 @@ import { onMounted } from 'vue';
 
       &:hover {
         margin-left: .625rem;
+      }
+    }
+
+    .back {
+      background: var(--color-blue);
+      border: 0;
+      padding: .8125rem 1.375rem;
+      border-radius: 3.125rem;
+      color: #fff;
+      display: inline-block;
+      cursor: pointer;
+      font-weight: 900;
+      line-height: 1;
+      text-decoration: none;
+      transition: all 0.2s ease;
+
+      &:hover {
+        color: var(--color-black);
+        background: var(--color-lime);
       }
     }
   }
