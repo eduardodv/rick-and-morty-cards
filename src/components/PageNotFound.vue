@@ -1,5 +1,10 @@
 <script setup lang="ts">
   import type { RouterLink } from 'vue-router';
+  import { useHead } from '@unhead/vue'
+
+  useHead({
+    title: 'Page not found | Rick and Morty Cards'
+  })
 </script>
 
 <template>

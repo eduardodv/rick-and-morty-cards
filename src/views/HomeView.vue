@@ -8,6 +8,8 @@
   import NotFoundMessage from '@/components/NotFoundMessage.vue';
   import LoadingComponent from '@/components/LoadingComponent.vue';
 
+  import { useHead } from '@unhead/vue'
+
   const store = useCharacterStore()
 
   const characters = computed(() => {
@@ -20,6 +22,10 @@
 
   onMounted(() => {
     store.fetchCharacters()
+  })
+
+  useHead({
+    title: 'Home | Rick and Morty Cards'
   })
 </script>
 

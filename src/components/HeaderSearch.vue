@@ -7,8 +7,10 @@
   const search = ref("")
 
   const handleSearchCharacter = (query:string) => {
-    store.fetchSearch(query)
-    search.value = ""
+    if (query.length > 0) {
+      store.fetchSearch(query)
+      search.value = ""
+    }
   }
 
 </script>
@@ -41,7 +43,7 @@
     input {
       flex: 1;
       border-right: 0;
-      padding-right: 0;
+      padding-right: 4.125rem;
       border: 2px solid var(--color-blue);
       border-radius: 50px;
       

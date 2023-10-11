@@ -4,6 +4,8 @@
   import { onMounted, ref } from 'vue';
   import { useRoute, useRouter } from 'vue-router'
 
+  import { useHead } from '@unhead/vue'
+
   interface CharacterProps {
     image: string
     name: string
@@ -56,10 +58,13 @@
     })
   }
 
-  onMounted(() => {
-    fetchCharacters()
-  })
+  onMounted(async () => {
+    await fetchCharacters()
 
+    useHead({
+      title: `${character.value.name} | Rick and Morty Cards`
+    })
+  })
 </script>
 
 <template>
