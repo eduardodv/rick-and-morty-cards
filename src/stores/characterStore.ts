@@ -36,8 +36,8 @@ export const useCharacterStore = defineStore('character', () => {
       });
       
       Promise.all(promises)
-      .then(respostas => {
-        episodes.value = respostas.map((resp) => {
+      .then(responses => {
+        episodes.value = responses.map((resp) => {
           return resp.data.name
         });
       })
