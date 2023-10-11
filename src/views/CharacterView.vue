@@ -68,7 +68,7 @@
 </script>
 
 <template>
-  <section id="single-post">
+  <article id="single-post">
     <div class="container">
       <div class="card">
         <div class="image">
@@ -96,7 +96,7 @@
         </ul>
       </div>
     </div>
-  </section>
+  </article>
 </template>
 
 <style lang="scss">
