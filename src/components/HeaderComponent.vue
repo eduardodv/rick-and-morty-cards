@@ -1,12 +1,29 @@
 <script setup lang="ts">
-  import { RouterLink } from 'vue-router'
+  import { RouterLink, useRouter } from 'vue-router'
   import HeaderSearch from './HeaderSearch.vue';
+
+  import { useCharacterStore } from '@/stores/characterStore';
+import { onMounted } from 'vue';
+  
+  const store = useCharacterStore()
+
+  const route = useRouter()
+
+  const handleReloadCharacters = () => {
+    if(route.currentRoute.value.name === 'home') {
+      store.reloadCharacters()
+    }
+  }
+
+  onMounted(async () => {
+    await route.isReady()
+  })
 </script>
 
 <template>
   <header id="header">
     <div class="container">
-      <RouterLink to="/">
+      <RouterLink to="/" @click="handleReloadCharacters">
         <img alt="Vue logo" class="logo" src="@/assets/logo.png" width="300" />
       </RouterLink>
 

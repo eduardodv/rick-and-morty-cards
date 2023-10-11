@@ -1,17 +1,29 @@
 <script setup lang="ts">
+  import Vue3Paginate from "vue3-paginate";
+
+  import { useCharacterStore } from '@/stores/characterStore';
   
+  const store = useCharacterStore()
+
+  const handlePageChange = (page: number) => {
+    store.pageChange(page)
+  }
+
+  const isMobile = screen.width <= 767 ? true : false
+
 </script>
 
 <template>
   <section id="pagination">
-    <strong>Página</strong>
-    <div>
-      <button class="active">1</button>
-      <button>2</button>
-      <button>3</button>
-      <span>...</span>
-      <button>100</button>
-    </div>
+    <vue3-paginate
+      :currentPage="store.currentPageStore"
+      :totalPage="(store.pageInfo.pages)"
+      :pageCount="isMobile ? '3' : '8'"
+      @pageChange="handlePageChange"
+      paginationItemClass="item"
+      paginationItemActiveClass="active"
+    >
+    </vue3-paginate>
   </section>
 </template>
 
@@ -24,16 +36,17 @@
     margin-bottom: 2.5rem;
     font-size: 1.25rem;
     
-    > div {
+    ul {
       display: flex;
       gap: 8px;
-      
-      button, span {
+      flex-wrap: wrap;
+
+      .item {
         line-height: 1;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-weight: bold;
+        font-family: var(--font);
         height: 2rem;
         min-width: 2rem;
         border: 0;
@@ -43,18 +56,41 @@
         color: var(--color-pagination);
         border: 1px solid var(--color-pagination);
         transition: all 0.2s ease;
-      }
-
-      button {
         cursor: pointer;
-
-        &:hover, &.active {
-          color: var(--color-pagination-text);
-          background: var(--color-pagination);
-        }
-
+        
         &.active {
           pointer-events: none;
+          color: var(--color-pagination-text);
+          background: var(--color-pagination);
+
+          svg {
+            fill: var(--color-pagination-text);
+          }
+        }
+
+        a {
+          font-weight: bold;
+        }
+
+        svg {
+          fill: var(--color-pagination);
+        }
+      }
+    }
+  }
+
+  @media (hover: hover) {
+    #pagination {
+      ul {
+        .item {
+          &:hover {
+            color: var(--color-pagination-text);
+            background: var(--color-pagination);
+
+            svg {
+              fill: var(--color-pagination-text);
+            }
+          }
         }
       }
     }
