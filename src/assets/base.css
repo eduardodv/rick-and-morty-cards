@@ -17,6 +17,8 @@
 
 /* semantic color variables for this project */
 :root {
+  --font: 'Nunito Sans', sans-serif;
+
   --color-background: var(--color-white);
   --color-text: var(--text-light-1);
   --card-item-color: var(--color-gray-light);
@@ -71,7 +73,7 @@ body {
   color: var(--color-text);
   background: var(--color-background);
   line-height: 1.6;
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: var(--font);
   font-size: 16px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

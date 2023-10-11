@@ -7,7 +7,7 @@
   const search = ref("")
 
   const handleSearchCharacter = (query:string) => {
-    store.fetchCharacters(query)
+    store.fetchSearch(query)
     search.value = ""
   }
 
