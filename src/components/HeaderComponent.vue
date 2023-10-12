@@ -24,7 +24,8 @@ import { onMounted } from 'vue';
   <header id="header">
     <div class="container">
       <RouterLink to="/" @click="handleReloadCharacters">
-        <img alt="Vue logo" class="logo" src="@/assets/logo.png" width="300" />
+        <img alt="logo" class="logo" src="@/assets/logo.png" width="300" />
+        <h1 v-if="$route.name === 'home'">Rick and Morty Cards</h1>
       </RouterLink>
 
       <HeaderSearch v-if="$route.name === 'home'" />
@@ -56,6 +57,19 @@ import { onMounted } from 'vue';
       &:hover {
         margin-left: .625rem;
       }
+    }
+
+    h1 {
+      font-size: 0;
+      width: 1px;
+      height: 1px;
+      display: inline-block;
+      overflow: hidden;
+      position: absolute!important;
+      border: 0!important;
+      padding: 0!important;
+      margin: 0!important;
+      clip: rect(1px,1px,1px,1px);
     }
 
     .back {

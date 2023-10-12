@@ -18,8 +18,8 @@
 <template>
   <div id="search">
     <form>
-      <input type="text" placeholder="Search" v-model="search">
-      <button @click.prevent="handleSearchCharacter(search)">
+      <input type="text" placeholder="Search" v-model="search" data-cy="search">
+      <button @click.prevent="handleSearchCharacter(search)" data-cy="button">
         <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
       </button>
     </form>
