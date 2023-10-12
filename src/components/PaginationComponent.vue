@@ -22,6 +22,7 @@
       @pageChange="handlePageChange"
       paginationItemClass="item"
       paginationItemActiveClass="active"
+      data-cy="pagination"
     >
     </vue3-paginate>
   </section>

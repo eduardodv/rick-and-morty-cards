@@ -14,8 +14,8 @@
 				<div class="img-wrapper">
 					<span>44</span>
 				</div>
-				<h1>The page you are trying to search has been moved to another universe.</h1>
-				<RouterLink type="button" to="/">GET ME HOME</RouterLink>
+				<h1 data-cy="title">The page you are trying to search has been moved to another universe.</h1>
+				<RouterLink data-cy="button" to="/">GET ME HOME</RouterLink>
 			</div>
 		</div>
 </template>
@@ -30,7 +30,6 @@
     align-items: center;
     justify-content: center;
     padding-bottom: 3rem;
-    /* background: var(--color-black); */
 
     .container {
       position: relative;

@@ -11,7 +11,7 @@
 <template>
   <section id="filter-status">
     <span>Filter by:</span>
-    <div class="buttons">
+    <div class="buttons" data-cy="buttons">
       <button 
         :class="{active: store.statusStore === ''}" 
         @click="handleFilterByStatus('')"
