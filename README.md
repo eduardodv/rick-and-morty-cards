@@ -1,6 +1,16 @@
-# rick-and-morty-cards
+# Rick and Morty cards
 
-This template should help get you started developing with Vue 3 in Vite.
+Project developed with Vue 3 in Vite.
+
+* [Not Found Page](https://codepen.io/hkmtqffr) - A Pen by hq.vhs to build the 404 page layout.
+* [Vue3 paginate](https://github.com/webformulator/vue3-paginate) - Used to create the pagination component.
+* [Unhead](https://unhead.unjs.io/) - Used to change the head title of routes.
+* [Font Awesome](https://fontawesome.com/) - Icon library
+
+## Demo: 
+[Link](https://rick-and-morty-cards-eduardodv.vercel.app/)
+
+![gif05](https://github.com/eduardodv/rick-and-morty-cards/assets/8463362/88448eab-3946-4d7c-a46d-9b053b7c7514)
 
 ## Recommended IDE Setup
 
