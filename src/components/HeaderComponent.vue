@@ -23,14 +23,14 @@ import { onMounted } from 'vue';
 <template>
   <header id="header">
     <div class="container">
-      <RouterLink to="/" @click="handleReloadCharacters">
+      <RouterLink to="/" @click="handleReloadCharacters" data-cy="logo">
         <img alt="logo" class="logo" src="@/assets/logo.png" width="300" />
         <h1 v-if="$route.name === 'home'">Rick and Morty Cards</h1>
       </RouterLink>
 
-      <HeaderSearch v-if="$route.name === 'home'" />
+      <HeaderSearch v-if="$route.name === 'home'" data-cy="search" />
       
-      <RouterLink v-else to="/" class="back">
+      <RouterLink v-else to="/" class="back" data-cy="back-button">
         <font-awesome-icon icon="fa-solid fa-angle-left" />
         Voltar
       </RouterLink>

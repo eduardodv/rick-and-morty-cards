@@ -23,6 +23,12 @@ import './commands'
 import '@/assets/main.css'
 
 import { mount } from 'cypress/vue'
+import { createMemoryHistory, createRouter } from 'vue-router'
+import type { Router } from 'vue-router'
+import router from '../../src/router'
+
+type MountParams = Parameters<typeof mount>
+type OptionsParam = MountParams[1] & { router?: Router }
 
 // Augment the Cypress namespace to include type definitions for
 // your custom command.
@@ -32,12 +38,38 @@ import { mount } from 'cypress/vue'
 declare global {
   namespace Cypress {
     interface Chainable {
-      mount: typeof mount
+      // mount: typeof mount
+      mount(component: any, options?: OptionsParam): Chainable<any>
     }
   }
 }
 
-Cypress.Commands.add('mount', mount)
+// Cypress.Commands.add('mount', mount)
+
+Cypress.Commands.add('mount', (component, options = {}) => {
+  // Setup options object
+  options.global = options.global || {}
+  options.global.plugins = options.global.plugins || []
+
+  // create router if one is not provided
+  if (!options.router) {
+    options.router = createRouter({
+      routes: router.options.routes,
+      history: createMemoryHistory(),
+    })
+  }
+
+  // Add router plugin
+  options.global.plugins.push({
+    install(app) {
+      if (options.router) { // Ensure router is not undefined
+        app.use(options.router);
+      }
+    },
+  })
+
+  return mount(component, options)
+})
 
 // Example use:
 // cy.mount(MyComponent)
