@@ -1,0 +1,13 @@
+{
+  "character": {
+    "id": 1,
+    "name": "Rick Sanchez",
+    "status": "Alive",
+    "species": "Human",
+    "image": "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+    "location": {
+      "name": "Citadel of Ricks"
+    }
+  },
+  "episode": "Pilot"
+}
